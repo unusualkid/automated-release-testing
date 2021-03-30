@@ -24,7 +24,7 @@ jobs:
         run: |
           git config --global user.name "lopa"
           git config --global user.email "loganpatino10@gmail.com"
-          npx standard-version -i RELEASE_BODY.md --header "# Changelog" --skip.commit
+          npx standard-version -t "" -i RELEASE_BODY.md --header "# Changelog" --skip.commit
       - name: publish tag
         id: publish_tag
         run: |
