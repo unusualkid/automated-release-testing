@@ -15,8 +15,5 @@
   "bugs": {
     "url": "https://github.com/lpatino10/automated-release-testing/issues"
   },
-  "homepage": "https://github.com/lpatino10/automated-release-testing#readme",
-  "devDependencies": {
-    "standard-version": "^9.1.1"
-  }
+  "homepage": "https://github.com/lpatino10/automated-release-testing#readme"
 }
