@@ -1,0 +1,23 @@
+{
+  "name": "automated-release-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare-release": "standard-version -t '' && git add CHANGELOG.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lpatino10/automated-release-testing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lpatino10/automated-release-testing/issues"
+  },
+  "homepage": "https://github.com/lpatino10/automated-release-testing#readme",
+  "devDependencies": {
+    "standard-version": "^9.1.1"
+  }
+}
