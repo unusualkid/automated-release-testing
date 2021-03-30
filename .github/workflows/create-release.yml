@@ -22,7 +22,7 @@ jobs:
           fetch-depth: 0 # gives standard-version access to all previous commits
       - name: generate tag and release body
         run: |
-          npx standard-version -t '' -i RELEASE_BODY.md --skip.commit
+          npx standard-version -t '' -i RELEASE_BODY.md --header 'Changelog' --skip.commit
       - name: publish tag
         id: publish_tag
         run: |
