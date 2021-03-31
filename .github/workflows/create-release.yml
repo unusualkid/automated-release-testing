@@ -58,6 +58,9 @@ jobs:
           find: "MARKETING_VERSION = .*-alpha;"
           replace: "MARKETING_VERSION = ${{ github.event.inputs.releaseVersion }}-alpha;"
           include: "ios/AppName.xcodeproj/project.pbxproj"
+      - name: discard changelog
+        run: |
+          rm CHANGELOG.md
       - name: create version bump PR
         uses: peter-evans/create-pull-request@v3
         with:
