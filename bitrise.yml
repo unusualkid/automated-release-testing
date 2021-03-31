@@ -1,0 +1,27 @@
+---
+format_version: '8'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: react-native
+workflows:
+  wait-for-build:
+    after_run: []
+    steps:
+      - build-router-wait@0:
+          inputs:
+            - access_token: '$BITRISE_ACCESS_TOKEN'
+app:
+  envs:
+    - opts:
+        is_expand: false
+      IOS_VERSION_NUMBER: 1.2.8-alpha
+    - opts:
+        is_expand: false
+      GRADLE_FILE: android/app/build.gradle
+    - opts:
+        is_expand: false
+      ANDROID_VERSION_NAME: '"1.2.8-alpha"'
+trigger_map:
+  - push_branch: master
+    workflow: trigger-prod
+  - pull_request_target_branch: master
+    workflow: trigger-dev

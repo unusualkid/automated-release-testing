@@ -8,7 +8,7 @@ on:
         required: true
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
 
     steps:
@@ -34,3 +34,9 @@ jobs:
           release_name: Release ${{ steps.publish_tag.outputs.tag_name }}
           tag_name: ${{ steps.publish_tag.outputs.tag_name }}
           body_path: RELEASE_BODY.md
+      - name: bump android version in bitrise config
+        uses: jacobtomlinson/gha-find-replace@0.1.2
+        with:
+          find: "ANDROID_VERSION_NAME: '.'"
+          replace: "ANDROID_VERSION_NAME: '${{ github.event.inputs.releaseVersion }}-alpha'"
+          include: "bitrise.yml"
