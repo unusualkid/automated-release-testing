@@ -16,27 +16,30 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: generate tag and release body
-        run: |
-          git config --global user.name "Greator"
-          git config --global user.email "devops@greator.com"
-          npx standard-version -t "" -i RELEASE_BODY.md --header "# Changelog" --release-as ${{ github.event.inputs.releaseVersion }} --skip.commit
-      - name: publish tag
-        id: publish_tag
-        run: |
-          git push --follow-tags
-          echo ::set-output name=tag_name::$(git describe HEAD --abbrev=0)
-      - name: create release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          release_name: Release ${{ steps.publish_tag.outputs.tag_name }}
-          tag_name: ${{ steps.publish_tag.outputs.tag_name }}
-          body_path: RELEASE_BODY.md
+      # - name: generate tag and release body
+      #   run: |
+      #     git config --global user.name "Greator"
+      #     git config --global user.email "devops@greator.com"
+      #     npx standard-version -t "" -i RELEASE_BODY.md --header "# Changelog" --release-as ${{ github.event.inputs.releaseVersion }} --skip.commit
+      # - name: publish tag
+      #   id: publish_tag
+      #   run: |
+      #     git push --follow-tags
+      #     echo ::set-output name=tag_name::$(git describe HEAD --abbrev=0)
+      # - name: create release
+      #   uses: actions/create-release@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     release_name: Release ${{ steps.publish_tag.outputs.tag_name }}
+      #     tag_name: ${{ steps.publish_tag.outputs.tag_name }}
+      #     body_path: RELEASE_BODY.md
       - name: bump android version in bitrise config
         uses: jacobtomlinson/gha-find-replace@0.1.2
         with:
           find: "ANDROID_VERSION_NAME: '.'"
           replace: "ANDROID_VERSION_NAME: '${{ github.event.inputs.releaseVersion }}-alpha'"
           include: "bitrise.yml"
+      - name: testing output
+        run: |
+          cat bitrise.yml
