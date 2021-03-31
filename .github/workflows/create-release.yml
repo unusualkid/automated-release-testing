@@ -67,5 +67,7 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           commit-message: "chore(release): bump version numbers post-release"
+          title: "Bump version numbers after ${{ github.event.inputs.releaseVersion }} release"
+          body: ":robot:: \"This PR updates the version numbers in the code as a result of the [${{ github.event.inputs.releaseVersion }} release](https://github.com/lpatino10/automated-release-testing/releases/tag/${{ github.event.inputs.releaseVersion }}).\""
           branch: post-release-version-bump
           base: master
