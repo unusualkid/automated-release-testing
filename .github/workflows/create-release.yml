@@ -20,7 +20,7 @@ jobs:
         run: |
           git config --global user.name "Greator"
           git config --global user.email "devops@greator.com"
-          npx standard-version -t "" -i RELEASE_BODY.md --header "# Changelog" --release-as ${{ github.event.inputs.releaseVersion }} --skip.commit
+          npx standard-version -t "" -i TEMP_CHANGELOG.md --header "# Changelog" --release-as ${{ github.event.inputs.releaseVersion }} --skip.commit
       - name: publish tag
         id: publish_tag
         run: |
@@ -33,7 +33,7 @@ jobs:
         with:
           release_name: Release ${{ steps.publish_tag.outputs.tag_name }}
           tag_name: ${{ steps.publish_tag.outputs.tag_name }}
-          body_path: RELEASE_BODY.md
+          body_path: TEMP_CHANGELOG.md
       - name: bump android version in bitrise config
         uses: jacobtomlinson/gha-find-replace@0.1.2
         with:
@@ -60,7 +60,7 @@ jobs:
           include: "ios/AppName.xcodeproj/project.pbxproj"
       - name: discard changelog
         run: |
-          rm CHANGELOG.md
+          rm TEMP_CHANGELOG.md
       - name: create version bump PR
         uses: peter-evans/create-pull-request@v3
         with:
