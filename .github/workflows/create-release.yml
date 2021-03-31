@@ -63,3 +63,9 @@ jobs:
           cat bitrise.yml
           cat android/gradle.properties
           cat ios/AppName.xcodeproj/project.pbxproj
+      - name: create version bump PR
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: "chore(release): bump version numbers post-release"
+          branch: post-release-version-bump
+          base: master
