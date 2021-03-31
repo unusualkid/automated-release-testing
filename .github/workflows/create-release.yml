@@ -38,8 +38,28 @@ jobs:
         uses: jacobtomlinson/gha-find-replace@0.1.2
         with:
           find: "ANDROID_VERSION_NAME: '.*-alpha.*"
-          replace: "ANDROID_VERSION_NAME: '${{ github.event.inputs.releaseVersion }}-alpha'"
+          replace: "ANDROID_VERSION_NAME: \"'${{ github.event.inputs.releaseVersion }}-alpha'\""
           include: "bitrise.yml"
+      - name: bump ios version in bitrise config
+        uses: jacobtomlinson/gha-find-replace@0.1.2
+        with:
+          find: "IOS_VERSION_NUMBER: .*-alpha"
+          replace: "IOS_VERSION_NUMBER: ${{ github.event.inputs.releaseVersion }}-alpha"
+          include: "bitrise.yml"
+      - name: bump version in gradle.properties
+        uses: jacobtomlinson/gha-find-replace@0.1.2
+        with:
+          find: "APP_VERSION_NUMBER=.*-alpha"
+          replace: "APP_VERSION_NUMBER=${{ github.event.inputs.releaseVersion }}-alpha"
+          include: "android/gradle.properties"
+      - name: bump marketing version iOS project file
+        uses: jacobtomlinson/gha-find-replace@0.1.2
+        with:
+          find: "MARKETING_VERSION = .*-alpha;"
+          replace: "MARKETING_VERSION = ${{ github.event.inputs.releaseVersion }}-alpha;"
+          include: "ios/AppName.xcodeproj/project.pbxproj"
       - name: testing output
         run: |
           cat bitrise.yml
+          cat android/gradle.properties
+          cat ios/AppName.xcodeproj/project.pbxproj
