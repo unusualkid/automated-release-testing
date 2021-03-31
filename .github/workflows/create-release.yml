@@ -2,6 +2,10 @@ name: Create Release
 
 on:
   workflow_dispatch:
+    inputs:
+      releaseVersion:
+        description: 'Version for the build to be released'
+        required: true
 
 jobs:
   build:
@@ -16,7 +20,7 @@ jobs:
         run: |
           git config --global user.name "Greator"
           git config --global user.email "devops@greator.com"
-          npx standard-version -t "" -i RELEASE_BODY.md --header "# Changelog" --skip.commit
+          npx standard-version -t "" -i RELEASE_BODY.md --header "# Changelog" --release-as ${{ github.event.inputs.releaseVersion }} --skip.commit
       - name: publish tag
         id: publish_tag
         run: |
