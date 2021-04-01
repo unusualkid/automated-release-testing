@@ -46,7 +46,7 @@ jobs:
         uses: jacobtomlinson/gha-find-replace@0.1.2
         with:
           find: "ANDROID_VERSION_NAME: .*"
-          replace: "ANDROID_VERSION_NAME: \"'${{ steps.calc_bump_version.outputs.bump_version }}'\""
+          replace: "ANDROID_VERSION_NAME: '\"${{ steps.calc_bump_version.outputs.bump_version }}\"'"
           include: "bitrise.yml"
       - name: bump ios version in bitrise config
         uses: jacobtomlinson/gha-find-replace@0.1.2
