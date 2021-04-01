@@ -41,7 +41,7 @@ jobs:
           MINOR=$( echo ${{ github.event.inputs.releaseVersion }} | cut -d '.' -f 2 )
           PATCH=$( echo ${{ github.event.inputs.releaseVersion }} | cut -d '.' -f 3 )
           NEW_PATCH=$(( $PATCH + 1 ))
-          echo ::set-output name=bump_version::$("${MAJOR}.${MINOR}.${NEW_PATCH}")
+          echo ::set-output name=bump_version::$(echo "${MAJOR}.${MINOR}.${NEW_PATCH}")
       - name: bump android version in bitrise config
         uses: jacobtomlinson/gha-find-replace@0.1.2
         with:
