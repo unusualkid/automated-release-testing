@@ -22,15 +22,17 @@ jobs:
         run: |
           git config --global user.name "Greator"
           git config --global user.email "devops@greator.com"
+          git checkout ${{ github.event.inputs.commitHash }}
           npx standard-version -t "" -i TEMP_CHANGELOG.md --header "# Changelog" --release-as ${{ github.event.inputs.releaseVersion }} --skip.commit --skip.tag
+          git checkout master
       - name: create and push tag
         run: |
           git tag ${{ github.event.inputs.releaseVersion }} ${{ github.event.inputs.commitHash }}
-          git push --follow-tags
+          git push origin ${{ github.event.inputs.releaseVersion }}
       - name: create release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.RELEASE_WORKFLOW_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           release_name: Release ${{ github.event.inputs.releaseVersion }}
           tag_name: ${{ github.event.inputs.releaseVersion }}
