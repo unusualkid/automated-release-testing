@@ -6,6 +6,9 @@ on:
       releaseVersion:
         description: 'Version for the build to be released'
         required: true
+      commitHash:
+        description: 'Commit hash to be tagged for the release. Defaults to the latest commit on the master branch.'
+        default: 'master'
 
 jobs:
   release:
@@ -16,6 +19,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+          ref: ${{ github.event.inputs.commitHash }}
       - name: generate tag and release body
         run: |
           git config --global user.name "Greator"
