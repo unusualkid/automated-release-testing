@@ -9,6 +9,9 @@ on:
       commitHash:
         description: 'Commit hash to be tagged for the release. Defaults to the latest commit on the master branch.'
         default: ''
+  push:
+    paths-ignore:
+      - .github/workflows/create-release.yml
 
 jobs:
   release:
