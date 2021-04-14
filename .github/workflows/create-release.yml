@@ -8,7 +8,7 @@ on:
         required: true
       commitHash:
         description: 'Commit hash to be tagged for the release. Defaults to the latest commit on the master branch.'
-        default: 'master'
+        default: ''
 
 jobs:
   release:
