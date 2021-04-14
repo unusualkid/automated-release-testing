@@ -26,7 +26,7 @@ jobs:
           npx standard-version -t "" -i TEMP_CHANGELOG.md --header "# Changelog" --release-as ${{ github.event.inputs.releaseVersion }} --skip.commit --skip.tag
       - name: create and push tag
         run: |
-          git tag -a ${{ github.event.inputs.releaseVersion }} ${{ github.event.inputs.commitHash }}
+          git tag ${{ github.event.inputs.releaseVersion }} ${{ github.event.inputs.commitHash }}
           git push --follow-tags
       - name: create release
         uses: actions/create-release@v1
