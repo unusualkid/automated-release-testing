@@ -30,6 +30,8 @@ jobs:
           npx standard-version -t "" -i TEMP_CHANGELOG.md --header "# Changelog" --release-as ${{ github.event.inputs.releaseVersion }} --skip.commit
       - name: publish tag
         id: publish_tag
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_WORKFLOW_TOKEN }}
         run: |
           git push origin ${{ github.event.inputs.releaseVersion }}
           echo ::set-output name=tag_name::$(git describe HEAD --abbrev=0)
