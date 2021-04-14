@@ -8,10 +8,6 @@ on:
         required: true
       commitHash:
         description: 'Commit hash to be tagged for the release. Defaults to the latest commit on the master branch.'
-        default: ''
-  push:
-    paths-ignore:
-      - .github/workflows/create-release.yml
 
 jobs:
   release:
@@ -23,25 +19,22 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.event.inputs.commitHash }}
-      - name: generate tag and release body
+      - name: generate release body
         run: |
           git config --global user.name "Greator"
           git config --global user.email "devops@greator.com"
-          npx standard-version -t "" -i TEMP_CHANGELOG.md --header "# Changelog" --release-as ${{ github.event.inputs.releaseVersion }} --skip.commit
-      - name: publish tag
-        id: publish_tag
-        env:
-          GITHUB_TOKEN: ${{ secrets.RELEASE_WORKFLOW_TOKEN }}
+          npx standard-version -t "" -i TEMP_CHANGELOG.md --header "# Changelog" --release-as ${{ github.event.inputs.releaseVersion }} --skip.commit --skip.tag
+      - name: create and push tag
         run: |
-          git push origin ${{ github.event.inputs.releaseVersion }}
-          echo ::set-output name=tag_name::$(git describe HEAD --abbrev=0)
+          git tag -a ${{ github.event.inputs.releaseVersion }} ${{ github.event.inputs.commitHash }}
+          git push --follow-tags
       - name: create release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_WORKFLOW_TOKEN }}
         with:
-          release_name: Release ${{ steps.publish_tag.outputs.tag_name }}
-          tag_name: ${{ steps.publish_tag.outputs.tag_name }}
+          release_name: Release ${{ github.event.inputs.releaseVersion }}
+          tag_name: ${{ github.event.inputs.releaseVersion }}
           body_path: TEMP_CHANGELOG.md
       - name: get new development version number
         id: calc_bump_version
