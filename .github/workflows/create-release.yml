@@ -23,7 +23,7 @@ jobs:
           git config --global user.name "Greator"
           git config --global user.email "devops@greator.com"
           git checkout ${{ github.event.inputs.commitHash }}
-          npx standard-version -t "" -i TEMP_CHANGELOG.md --header "# Changelog" --release-as ${{ github.event.inputs.releaseVersion }} --skip.commit --skip.tag
+          npx standard-version -t "" -i TEMP_CHANGELOG.md --header "# Changelog" --releaseCommitMessageFormat "helloWorld" --release-as ${{ github.event.inputs.releaseVersion }} --skip.commit --skip.tag
           git checkout master
       - name: create and push tag
         run: |
