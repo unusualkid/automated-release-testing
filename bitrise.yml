@@ -13,13 +13,13 @@ app:
   envs:
     - opts:
         is_expand: false
-      IOS_VERSION_NUMBER: 3.2.1
+      IOS_VERSION_NUMBER: 3.5.3
     - opts:
         is_expand: false
       GRADLE_FILE: android/app/build.gradle
     - opts:
         is_expand: false
-      ANDROID_VERSION_NAME: '"3.2.1"'
+      ANDROID_VERSION_NAME: '"3.5.3"'
 trigger_map:
   - push_branch: master
     workflow: trigger-prod
