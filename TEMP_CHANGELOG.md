@@ -1,0 +1,53 @@
+# Changelog
+### [3.5.1](https://github.com/lpatino10/automated-release-testing/compare/v1.1.0...v3.5.1) (2021-04-29)
+
+
+### Features
+
+* accept a version number! ([1e4cc58](https://github.com/lpatino10/automated-release-testing/commit/1e4cc58070af5aea047c260a4339d8e8fe4540c7))
+* add some fancy PR formatting ([b323738](https://github.com/lpatino10/automated-release-testing/commit/b3237386b20d922d93f4cc363f057f914f6141d4))
+* ask for commit hash before releasing ([5f25859](https://github.com/lpatino10/automated-release-testing/commit/5f25859dcc9fac09dc89652f7118526d84d68511))
+* bIG changes ([140e4ce](https://github.com/lpatino10/automated-release-testing/commit/140e4ce2640e29b5156f09c4fcb97d9cfbea6862))
+* bIG HEADER ([7f700e7](https://github.com/lpatino10/automated-release-testing/commit/7f700e7dc00374adc94c13a0958c97e787188d55))
+* enable quick find and replace testing ([7b2f38c](https://github.com/lpatino10/automated-release-testing/commit/7b2f38c5c48c030de2d79e6f497306a60fbfb15f))
+* eNORMOUS changes ([e78c874](https://github.com/lpatino10/automated-release-testing/commit/e78c8746cbf3cf21cf0417f8b43e479e7db7a935))
+* feature to be released! ([8d8e110](https://github.com/lpatino10/automated-release-testing/commit/8d8e1103dff865c2e5ed6e478beebdb363a49a45))
+* make an automated PR :eyes: ([1993d40](https://github.com/lpatino10/automated-release-testing/commit/1993d40452d1c41d57710b72dd5d7f2e54c7afa6))
+* sigh ([5b2728f](https://github.com/lpatino10/automated-release-testing/commit/5b2728f27d7a86991a1623dbbe4e165bff8668e2))
+* this feature is cool but we haven't verified so plz don't release ([c059641](https://github.com/lpatino10/automated-release-testing/commit/c059641754b1642d941049036da1390821b5e582))
+* **dt42-50:** add new :rabbit: course type ([22ee6b1](https://github.com/lpatino10/automated-release-testing/commit/22ee6b14460c9a4dc66fe61eb125bc7472007e68))
+* **inga-82:** show new hard paywall after free trial ([518653b](https://github.com/lpatino10/automated-release-testing/commit/518653b5f21d4b8b336598d15aa3ec149cddce65))
+* match the final product :sparkles: ([9a2cc34](https://github.com/lpatino10/automated-release-testing/commit/9a2cc34da0d313182bba64f10cdf2f76192b0cc0))
+* rearrange src files and add other find and replaces ([9f73490](https://github.com/lpatino10/automated-release-testing/commit/9f734909c1b2c0913ee360634ad20100c4d0e540))
+* the whole shebang :bangbang: ([9a7600e](https://github.com/lpatino10/automated-release-testing/commit/9a7600e2fc0ef12598a42abbf8d3ec8bca841db6))
+* update header ([e6f15b8](https://github.com/lpatino10/automated-release-testing/commit/e6f15b883e62781712b484e9dd694401f37e5e9b))
+
+
+### Bug Fixes
+
+* actually use token ([f6cd5fd](https://github.com/lpatino10/automated-release-testing/commit/f6cd5fdf6728eb2d1176017eea0259ea589701d7))
+* add back git config ([60c26ff](https://github.com/lpatino10/automated-release-testing/commit/60c26ffb7c3a99ec49596f0b9fb3927f2e10dc70))
+* add test src files and first replace ([f9f1a9c](https://github.com/lpatino10/automated-release-testing/commit/f9f1a9c5cd83ad0c19b0839b653a648ffb9c3e46))
+* again change tag push command ([83632ec](https://github.com/lpatino10/automated-release-testing/commit/83632eccd375e1a6a04aefee2154d64a9937a7b6))
+* avoid pulling up prompt ([eb9f9ac](https://github.com/lpatino10/automated-release-testing/commit/eb9f9accdff1ea2b16c2cf0aec2d4446826cd143))
+* bump single increment of patch version ([7173bae](https://github.com/lpatino10/automated-release-testing/commit/7173bae556f99c643703a93361cdccf32d2bb86f))
+* change format...once again ([39d4b79](https://github.com/lpatino10/automated-release-testing/commit/39d4b7995f1cd585368b3f57a87da67fdce68a44))
+* default to empty string ([8fbfd5d](https://github.com/lpatino10/automated-release-testing/commit/8fbfd5d8f0389cdf06366e4913f730a308850047))
+* fall back to git tags for new version ([99e0d15](https://github.com/lpatino10/automated-release-testing/commit/99e0d15fb1bcc42d713f2736c96d45c7a094f38b))
+* fix bump version step output ([4e6c8fe](https://github.com/lpatino10/automated-release-testing/commit/4e6c8fe7b83ce724f6bc3059a7b638ed5aebc257))
+* fix quote order ([dfcea4c](https://github.com/lpatino10/automated-release-testing/commit/dfcea4c9d3362b51132f053666e54a1a14d3e975))
+* fix regex ([104e4d3](https://github.com/lpatino10/automated-release-testing/commit/104e4d3e84a20c4e526a14c0c63e96a3221436cf))
+* idk man ([900d27c](https://github.com/lpatino10/automated-release-testing/commit/900d27c22a4c8fcb16a691bb9a2a751bb5bd2b33))
+* ignore git config ([74d34ff](https://github.com/lpatino10/automated-release-testing/commit/74d34fffbada816544d379618e9ad8f6eb4bdb88))
+* ignore package.json ([8bc7c32](https://github.com/lpatino10/automated-release-testing/commit/8bc7c32a53b95f178580885ac94cc2a4291e31ca))
+* ignore workflow file ([8fc077d](https://github.com/lpatino10/automated-release-testing/commit/8fc077d68b694cc6ea64bcb8ca0d33f402521119))
+* push to specific new tag ([d4101e0](https://github.com/lpatino10/automated-release-testing/commit/d4101e019b372345af34fbf06cb1555a7be1e0ee))
+* remove changelog before making PR ([2acf530](https://github.com/lpatino10/automated-release-testing/commit/2acf530b13f31a297a757ba3cb70be7697bf029b))
+* remove dependency entirely ([11a6d48](https://github.com/lpatino10/automated-release-testing/commit/11a6d482c2af40a359b3d3839b89d402c515cfed))
+* stick with default tag format ([cd00bce](https://github.com/lpatino10/automated-release-testing/commit/cd00bce4a8262319c4df645c806cb1e73f207ad6))
+* still checkout master ([a8a6fba](https://github.com/lpatino10/automated-release-testing/commit/a8a6fba99c8113a62285de4da887878e79c70608))
+* use correct name for changelog ([414d22a](https://github.com/lpatino10/automated-release-testing/commit/414d22a8f0d60b298b057e8b6a0ea5379d54a95e))
+* use matching tag format ([93095a0](https://github.com/lpatino10/automated-release-testing/commit/93095a00f6ac8720d7e1cf756e40e0c7cd02093e))
+* use new token ([5055889](https://github.com/lpatino10/automated-release-testing/commit/50558898ade6b0e17fae05853f22f342afcd7e50))
+* use supplied tag name ([74a5b94](https://github.com/lpatino10/automated-release-testing/commit/74a5b943344d3e0901513e7d46678e5b122d00fa))
+* **gbg-430:** avoid app crashing with native controls ([1741c40](https://github.com/lpatino10/automated-release-testing/commit/1741c40e237c4328477e381b40c2e27dd76a2b66))
