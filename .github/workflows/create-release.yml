@@ -10,7 +10,6 @@ on:
         description: 'Commit hash to be tagged for the release. Defaults to the latest commit on the master branch.'
       releaseMessage:
         description: "What's new in this release?"
-        required: true
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -25,7 +24,7 @@ jobs:
           git config --global user.name "Greator"
           git config --global user.email "devops@greator.com"
           git checkout ${{ github.event.inputs.commitHash }}
-          npx standard-version -i TEMP_CHANGELOG.md --header "# Changelog" --releaseCommitMessageFormat "helloWorld" --release-as ${{ github.event.inputs.releaseVersion }} --skip.tag
+          npx standard-version -i TEMP_CHANGELOG.md --header "${{ github.event.inputs.releaseMessage }}" --release-as ${{ github.event.inputs.releaseVersion }} --skip.commit --skip.tag
           git checkout master
       - name: create and push tag
         run: |
